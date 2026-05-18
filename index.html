@@ -606,6 +606,181 @@
     font-size: 0.805rem; font-weight: 600; letter-spacing: .08em;
   }
 
+
+  /* ── SERVICE PRICE TAG ── */
+  .service-price {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid var(--gray-light);
+  }
+  .price-label {
+    font-size: 0.72rem; color: var(--gray);
+    text-transform: uppercase; letter-spacing: .1em; font-weight: 500;
+  }
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--gold);
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--white); }
+  .pricing-header { max-width: 560px; margin-bottom: 56px; }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; align-items: start;
+  }
+  .pricing-card {
+    background: var(--cream);
+    border: 1px solid var(--gray-light);
+    border-radius: 12px; padding: 36px;
+    display: flex; flex-direction: column; gap: 0;
+    transition: transform .3s, box-shadow .3s;
+    position: relative; overflow: hidden;
+  }
+  .pricing-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(13,27,42,0.1); }
+  .pricing-card:hover::before { transform: scaleX(1); }
+  .pricing-card-featured {
+    background: var(--navy);
+    border-color: var(--gold);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(13,27,42,0.2);
+  }
+  .pricing-card-featured::before { transform: scaleX(1); }
+  .pricing-card-featured:hover { transform: translateY(-14px); }
+  .pricing-badge {
+    display: inline-block;
+    background: var(--gold-dim); color: var(--gold);
+    border: 1px solid rgba(201,168,76,.3);
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .15em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .badge-gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .badge-teal { background: rgba(42,125,95,.15); color: #2A7D5F; border-color: rgba(42,125,95,.3); }
+  .pricing-icon { font-size: 2rem; margin-bottom: 12px; }
+  .pricing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 8px;
+  }
+  .pricing-card-featured .pricing-name { color: var(--white); }
+  .pricing-desc { font-size: .88rem; color: var(--gray); line-height: 1.65; margin-bottom: 20px; }
+  .pricing-card-featured .pricing-desc { color: rgba(255,255,255,.55); }
+  .pricing-amount {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .pa-label { font-size: .72rem; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; }
+  .pricing-card-featured .pa-label { color: rgba(255,255,255,.45); }
+  .pa-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+  }
+  .pa-per { font-size: .78rem; color: var(--gray); }
+  .pricing-card-featured .pa-per { color: rgba(255,255,255,.4); }
+  .pricing-list { list-style: none; display: grid; gap: 10px; margin-bottom: 28px; }
+  .pricing-list li {
+    font-size: .88rem; color: var(--text);
+    padding-left: 20px; position: relative;
+  }
+  .pricing-list li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--gold); font-weight: 700;
+  }
+  .pricing-card-featured .pricing-list li { color: rgba(255,255,255,.8); }
+  .pricing-btn {
+    display: block; text-align: center;
+    background: var(--navy); color: var(--white);
+    padding: 13px 24px; border-radius: 5px;
+    font-weight: 700; font-size: .85rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background .25s, transform .2s;
+    margin-top: auto;
+  }
+  .pricing-btn:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+  .pricing-btn-gold { background: var(--gold); color: var(--navy); }
+  .pricing-btn-gold:hover { background: var(--gold-light); }
+
+  /* Flexible package */
+  .flex-services { display: grid; gap: 8px; margin-bottom: 16px; }
+  .flex-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px; border-radius: 6px;
+    background: var(--white); border: 1px solid var(--gray-light);
+    transition: border-color .2s, background .2s;
+  }
+  .flex-item:has(.flex-check:checked) {
+    border-color: var(--gold); background: var(--gold-dim);
+  }
+  .flex-item:hover { border-color: var(--gold); background: var(--gold-dim); }
+  .flex-label {
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer; flex: 1; position: relative;
+  }
+  .flex-check {
+    position: absolute; opacity: 0; width: 18px; height: 18px;
+    cursor: pointer; margin: 0;
+  }
+  .flex-check-box {
+    width: 18px; height: 18px; border-radius: 4px;
+    border: 2px solid var(--gray-light);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, background .2s;
+  }
+  .flex-check:checked + .flex-check-box {
+    background: var(--gold); border-color: var(--gold);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%230D1B2A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+  }
+  .flex-name { font-size: .82rem; color: var(--text); font-weight: 500; }
+  .flex-price { font-size: .8rem; color: var(--gold); font-weight: 700; white-space: nowrap; margin-left: 8px; }
+  .flex-summary {
+    background: var(--navy); border-radius: 8px;
+    padding: 16px 18px; margin-bottom: 14px;
+  }
+  .flex-summary-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px;
+  }
+  .flex-summary-row span:first-child { font-size: .8rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .08em; }
+  .flex-total { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; }
+  .flex-selected { font-size: .75rem; color: rgba(255,255,255,.4); line-height: 1.6; }
+  .flex-contact-btn {
+    background: var(--gold); color: var(--navy);
+    display: block; text-align: center;
+    padding: 13px 24px; border-radius: 5px;
+    font-weight: 700; font-size: .85rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; margin-bottom: 0;
+    transition: background .25s, transform .2s;
+  }
+  .flex-contact-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .flex-hint { font-size: .78rem; color: var(--gray); text-align: center; margin-top: 10px; font-style: italic; }
+  .pricing-note {
+    margin-top: 36px; font-size: 0.72rem; color: var(--gray);
+    text-align: center; line-height: 1.7;
+  }
+  .pricing-note a { color: var(--gold); text-decoration: none; }
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card-featured { transform: none; }
+  }
+
+  .service-disclaimer {
+    font-size: 0.36rem; color: var(--gray);
+    font-style: italic; margin-top: 10px;
+    line-height: 1.5; border-top: 1px dashed var(--gray-light);
+    padding-top: 10px;
+  }
   /* ── SCROLL ANIMATIONS ── */
   .reveal {
     opacity: 0; transform: translateY(24px);
@@ -677,6 +852,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#coverage">Coverage</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
@@ -791,6 +967,10 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
               <option>Payroll Services</option>
               <option>Management Advisory</option>
               <option>Multiple Services / Not Sure Yet</option>
+              <option disabled>── Packages ──</option>
+              <option>Basic Package (Bookkeeping + BIR Tax Filing)</option>
+              <option>Standard Package (Bookkeeping + BIR + Financial Statements + Payroll)</option>
+              <option>Flexible Package (Custom Services)</option>
             </select>
           </div>
           <div class="form-group">
@@ -858,6 +1038,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Subsidiary ledger upkeep</li>
         <li>Monthly financial reports</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱1,500</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -870,6 +1056,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Percentage Tax (2551Q)</li>
         <li>Withholding Tax (1601C, 1601EQ, 1604CF)</li>
        </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱500</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -883,6 +1075,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Comparative financial analysis</li>
         <li>Management reports</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱3,000</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -897,6 +1095,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Books of accounts registration</li>
         <li>Authority to Print registration (exclusive to Cagayan Valley clients only)</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱5,000</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -910,6 +1114,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Compromise settlement assistance</li>
         <li>Protest letter preparation</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱5,000</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -923,6 +1133,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Business structure advisory</li>
         <li>Year-end tax planning strategies</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱1,500</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -936,6 +1152,12 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>SSS, PhilHealth, Pag-IBIG remittances</li>
         <li>Alpha list &amp; BIR 2316 preparation</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱3,000</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
     <div class="service-card reveal">
@@ -949,9 +1171,164 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         <li>Break-even &amp; cost analysis</li>
         <li>Financial health diagnostics</li>
       </ul>
+    
+      <div class="service-price">
+        <span class="price-label">Starting at</span>
+        <span class="price-amount">₱1,500</span>
+      </div>
+      <p class="service-disclaimer">* Final price may vary based on business size and transaction volume.</p>
     </div>
 
   </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header reveal">
+    <span class="section-tag">Pricing</span>
+    <h2 class="section-title">Simple, Transparent Pricing</h2>
+    <p class="section-sub">Choose a package that fits your business or build your own. All packages include personalized CPA service with zero hidden fees.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- BASIC -->
+    <div class="pricing-card reveal">
+      <div class="pricing-card-top">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-icon">⭐</div>
+        <h3 class="pricing-name">Basic Package</h3>
+        <p class="pricing-desc">Most popular for new sole proprietors just starting out.</p>
+        <div class="pricing-amount">
+          <span class="pa-label">Starting at</span>
+          <span class="pa-price">₱1,500</span>
+          <span class="pa-per">/month</span>
+        </div>
+      </div>
+      <ul class="pricing-list">
+        <li>Bookkeeping Services</li>
+        <li>BIR Tax Filing &amp; Compliance</li>
+      </ul>
+      <a href="#contact" class="pricing-btn">Get Started</a>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="pricing-card pricing-card-featured reveal">
+      <div class="pricing-card-top">
+        <div class="pricing-badge badge-gold">Best Value</div>
+        <div class="pricing-icon">🏆</div>
+        <h3 class="pricing-name">Standard Package</h3>
+        <p class="pricing-desc">Best for growing businesses needing full financial coverage.</p>
+        <div class="pricing-amount">
+          <span class="pa-label">Starting at</span>
+          <span class="pa-price">₱5,000</span>
+          <span class="pa-per">/month</span>
+        </div>
+      </div>
+      <ul class="pricing-list">
+        <li>Bookkeeping Services</li>
+        <li>BIR Tax Filing &amp; Compliance</li>
+        <li>Financial Statement Preparation</li>
+        <li>Payroll Services</li>
+      </ul>
+      <a href="#contact" class="pricing-btn pricing-btn-gold">Get Started</a>
+    </div>
+
+    <!-- FLEXIBLE -->
+    <div class="pricing-card reveal">
+      <div class="pricing-card-top">
+        <div class="pricing-badge badge-teal">Custom</div>
+        <div class="pricing-icon">🛠️</div>
+        <h3 class="pricing-name">Flexible Package</h3>
+        <p class="pricing-desc">Build your own — choose only the services your business needs.</p>
+        <div class="pricing-amount">
+          <span class="pa-label">Price based on</span>
+          <span class="pa-price" style="font-size:1.4rem;">Selected Services</span>
+        </div>
+      </div>
+
+      <div class="flex-services">
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="1500" data-name="Bookkeeping Services">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Bookkeeping Services</span>
+          </label>
+          <span class="flex-price">₱1,500</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="500" data-name="BIR Tax Filing & Compliance">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">BIR Tax Filing &amp; Compliance</span>
+          </label>
+          <span class="flex-price">₱500</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="3000" data-name="Financial Statement Preparation">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Financial Statement Preparation</span>
+          </label>
+          <span class="flex-price">₱3,000</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="5000" data-name="Business Registration & Compliance">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Business Registration &amp; Compliance</span>
+          </label>
+          <span class="flex-price">₱5,000</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="5000" data-name="Tax Audit Assistance & Representation">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Tax Audit Assistance &amp; Representation</span>
+          </label>
+          <span class="flex-price">₱5,000</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="1500" data-name="Tax Planning & Consulting">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Tax Planning &amp; Consulting</span>
+          </label>
+          <span class="flex-price">₱1,500</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="3000" data-name="Payroll Services">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Payroll Services</span>
+          </label>
+          <span class="flex-price">₱3,000</span>
+        </div>
+        <div class="flex-item">
+          <label class="flex-label">
+            <input type="checkbox" class="flex-check" data-price="1500" data-name="Management & Advisory Services">
+            <span class="flex-check-box"></span>
+            <span class="flex-name">Management &amp; Advisory Services</span>
+          </label>
+          <span class="flex-price">₱1,500</span>
+        </div>
+      </div>
+
+      <div class="flex-summary" id="flexSummary" style="display:none;">
+        <div class="flex-summary-row">
+          <span>Estimated Total</span>
+          <span class="flex-total" id="flexTotal">₱0</span>
+        </div>
+        <div class="flex-selected" id="flexSelected"></div>
+      </div>
+
+      <a href="#contact" class="pricing-btn flex-contact-btn" id="flexContactBtn" style="display:none;">
+        Contact Us to Discuss →
+      </a>
+      <div class="flex-hint" id="flexHint">Select services above to see an estimate</div>
+    </div>
+
+  </div>
+  <p class="pricing-note reveal">* All prices are starting rates. Final pricing depends on business size, transaction volume, and specific requirements. <a href="#contact">Contact us</a> for a personalized quote.</p>
 </section>
 
 <!-- WHY US -->
@@ -1201,6 +1578,36 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
         ? 'var(--gold)' : '';
     });
   });
+
+  // Flexible package calculator - fixed
+  function updateFlexTotal() {
+    const checked = document.querySelectorAll('.flex-check:checked');
+    const total = Array.from(checked).reduce((sum, cb) => sum + parseInt(cb.dataset.price), 0);
+    const summary = document.getElementById('flexSummary');
+    const totalEl = document.getElementById('flexTotal');
+    const selectedEl = document.getElementById('flexSelected');
+    const btn = document.getElementById('flexContactBtn');
+    const hint = document.getElementById('flexHint');
+
+    if (checked.length > 0) {
+      summary.style.display = 'block';
+      btn.style.display = 'block';
+      hint.style.display = 'none';
+      totalEl.textContent = '\u20b1' + total.toLocaleString();
+      const names = Array.from(checked).map(cb => cb.dataset.name).join(', ');
+      selectedEl.textContent = 'Selected: ' + names;
+    } else {
+      summary.style.display = 'none';
+      btn.style.display = 'none';
+      hint.style.display = 'block';
+    }
+  }
+
+  // Clean checkbox listeners - no double toggle
+  document.querySelectorAll('.flex-check').forEach(function(cb) {
+    cb.addEventListener('change', updateFlexTotal);
+  });
+
 </script>
 </body>
 </html>
