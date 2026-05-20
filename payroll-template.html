@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippine Payroll Excel Template v2026 | Accounting Tax Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #152232;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-dim: rgba(201,168,76,0.15);
+    --cream: #F7F3EC;
+    --white: #FFFFFF;
+    --gray: #8A9BB0;
+    --gray-light: #E8EDF4;
+    --text: #1A2B3C;
+    --accent-green: #2A7D5F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    animation: slideDown .6s ease forwards;
+  }
+  @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+
+  .nav-logo {
+    display: flex; flex-direction: row; align-items: center; gap: 12px; line-height: 1;
+    text-decoration: none;
+  }
+  .nav-logo-img {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.4);
+    object-fit: cover; flex-shrink: 0;
+    background: rgba(255,255,255,0.08);
+    padding: 2px;
+  }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.438rem; font-weight: 700;
+    color: var(--gold); letter-spacing: .02em;
+  }
+  .nav-logo-text span:last-child {
+    font-size: 0.747rem; font-weight: 500;
+    color: var(--gray); letter-spacing: .15em;
+    text-transform: uppercase; margin-top: 2px;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,.75); text-decoration: none;
+    font-size: 0.977rem; font-weight: 500; letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: color .25s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transition: transform .25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 9px 22px; border-radius: 3px;
+    font-weight: 600 !important; font-size: 0.92rem !important;
+    letter-spacing: .1em !important;
+    transition: background .25s, transform .2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 72vh;
+    background: var(--navy);
+    display: grid; place-items: center;
+    position: relative; overflow: hidden;
+    padding: 140px 60px 80px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(42,125,95,0.06) 0%, transparent 60%);
+  }
+  .hero-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 800px; text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3);
+    padding: 7px 18px; border-radius: 100px;
+    margin-bottom: 32px;
+    animation: fadeUp .8s .2s ease both;
+  }
+  .hero-badge span {
+    font-size: 0.828rem; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.12; letter-spacing: -.01em;
+    animation: fadeUp .8s .35s ease both;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 1.1rem; color: rgba(255,255,255,.6);
+    line-height: 1.75; max-width: 560px; margin-inline: auto;
+    animation: fadeUp .8s .5s ease both;
+  }
+  .hero-actions {
+    margin-top: 40px; display: flex; gap: 16px;
+    justify-content: center; flex-wrap: wrap;
+    animation: fadeUp .8s .65s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 34px; border-radius: 3px;
+    font-weight: 700; font-size: 1rem;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .25s, transform .2s, box-shadow .25s;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.3);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(201,168,76,0.4);
+  }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,.25);
+    color: var(--white); padding: 14px 34px;
+    border-radius: 3px; font-weight: 500;
+    font-size: 1rem; letter-spacing: .06em;
+    text-transform: uppercase; text-decoration: none;
+    transition: border-color .25s, background .25s, transform .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold); background: var(--gold-dim);
+    transform: translateY(-2px);
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 90px 60px; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.805rem; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--navy);
+  }
+  .section-title.light { color: var(--white); }
+  .section-sub {
+    margin-top: 14px; font-size: 1.08rem;
+    color: var(--gray); line-height: 1.75; max-width: 520px;
+  }
+  .section-sub.light { color: rgba(255,255,255,.6); }
+
+  /* ── REVEAL ── */
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal-left { transform: translateX(-30px); }
+  .reveal-right { transform: translateX(30px); }
+  .reveal.visible, .reveal-left.visible, .reveal-right.visible {
+    opacity: 1; transform: none;
+  }
+
+  /* ── PRODUCT OVERVIEW ── */
+  .product-overview {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .product-visual {
+    position: relative;
+  }
+  .excel-mockup {
+    background: linear-gradient(145deg, var(--navy), var(--navy-mid));
+    border-radius: 12px; padding: 32px;
+    border: 1px solid rgba(201,168,76,0.2);
+    box-shadow: 0 32px 80px rgba(13,27,42,0.25);
+    position: relative; overflow: hidden;
+  }
+  .excel-mockup::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%);
+  }
+  .excel-title-bar {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .excel-dots { display: flex; gap: 6px; }
+  .excel-dots span {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .excel-dots span:first-child { background: #ff5f57; }
+  .excel-dots span:nth-child(2) { background: #febc2e; }
+  .excel-dots span:nth-child(3) { background: #28c840; }
+  .excel-filename {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    letter-spacing: .08em; margin-left: 8px;
+  }
+  .excel-sheet-tabs {
+    display: flex; gap: 4px; margin-bottom: 18px;
+  }
+  .tab {
+    font-size: 0.7rem; padding: 4px 12px; border-radius: 3px 3px 0 0;
+    color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05);
+    letter-spacing: .06em; font-weight: 500;
+  }
+  .tab.active {
+    background: rgba(201,168,76,0.2); color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3); border-bottom: none;
+  }
+  .excel-table { width: 100%; border-collapse: collapse; }
+  .excel-table th {
+    font-size: 0.62rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--gold); padding: 6px 10px; text-align: left;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    white-space: nowrap;
+  }
+  .excel-table td {
+    font-size: 0.72rem; color: rgba(255,255,255,0.65);
+    padding: 7px 10px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .excel-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .td-green { color: #5BBFA0 !important; }
+  .td-gold { color: var(--gold) !important; font-weight: 600; }
+  .excel-badge {
+    position: absolute; top: -16px; right: -16px;
+    background: var(--gold); color: var(--navy);
+    padding: 14px 18px; border-radius: 8px;
+    font-weight: 700; text-align: center;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.45);
+    z-index: 2;
+  }
+  .excel-badge .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; display: block; line-height: 1;
+  }
+  .excel-badge .small {
+    font-size: 0.65rem; letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  .product-text { position: relative; }
+  .product-text p {
+    font-size: 1.05rem; color: #4A5568;
+    line-height: 1.85; margin-bottom: 18px;
+  }
+  .product-highlights {
+    list-style: none; display: grid; gap: 10px; margin-top: 24px;
+  }
+  .product-highlights li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 1.02rem; color: var(--text);
+  }
+  .product-highlights li::before {
+    content: '';
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold-dim); border: 1px solid var(--gold);
+    flex-shrink: 0; margin-top: 3px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' stroke='%23C9A84C' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+  }
+
+  /* ── FEATURES GRID ── */
+  .features { background: var(--cream); }
+  .features-header { max-width: 560px; margin-bottom: 56px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px; padding: 32px;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(13,27,42,0.1);
+    border-color: transparent;
+  }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-icon {
+    width: 52px; height: 52px; border-radius: 10px;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 10px;
+  }
+  .feature-card p {
+    font-size: 0.97rem; color: #5A6A7A;
+    line-height: 1.75;
+  }
+  .feature-list { list-style: none; display: grid; gap: 6px; margin-top: 12px; }
+  .feature-list li {
+    font-size: 0.88rem; color: var(--gray);
+    padding-left: 14px; position: relative;
+  }
+  .feature-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--gold); font-size: 0.85rem;
+  }
+
+  /* ── HOW TO GET ── */
+  .how-section { background: var(--navy); }
+  .how-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .how-steps { display: grid; gap: 0; margin-top: 36px; }
+  .how-step {
+    display: flex; gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background .2s;
+  }
+  .how-step:last-child { border-bottom: none; }
+  .how-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: rgba(201,168,76,0.2);
+    line-height: 1; flex-shrink: 0; width: 40px;
+    border-right: 1px solid rgba(201,168,76,.2);
+    padding-right: 16px; margin-right: 4px;
+    transition: color .3s;
+  }
+  .how-step:hover .how-num { color: var(--gold); }
+  .how-step-text h4 {
+    font-weight: 600; color: var(--white);
+    margin-bottom: 5px; font-size: 1.05rem;
+  }
+  .how-step-text p { font-size: 0.93rem; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+  /* ── QR / PAYMENT CARD ── */
+  .payment-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(201,168,76,.18);
+    border-radius: 16px; padding: 44px;
+    text-align: center;
+  }
+  .payment-card-top {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; display: flex; align-items: center;
+    justify-content: center; gap: 10px;
+  }
+  .payment-card-top::before,
+  .payment-card-top::after { content: ''; flex: 1; height: 1px; background: rgba(201,168,76,.25); }
+
+  /* QR placeholder box */
+  .qr-wrapper {
+    display: inline-block;
+    background: var(--white);
+    border-radius: 12px; padding: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    margin-bottom: 24px;
+  }
+  .qr-placeholder {
+    width: 200px; height: 200px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: #f9f9f9;
+    border: 2px dashed #ddd; border-radius: 8px;
+    gap: 10px; cursor: default;
+  }
+  /* When a real QR image is placed, replace the above with: */
+  /* .qr-placeholder img { width: 200px; height: 200px; display: block; } */
+  .qr-placeholder-text {
+    font-size: 0.72rem; color: #aaa; text-align: center;
+    line-height: 1.5; padding: 0 12px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .qr-app-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--navy);
+    margin-top: 6px;
+  }
+
+  /* Real QR image (shown once you replace placeholder) */
+  .qr-img {
+    width: 200px; height: 200px;
+    display: block; border-radius: 8px;
+  }
+
+  .payment-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--white); font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .payment-note {
+    font-size: 0.88rem; color: rgba(255,255,255,.5);
+    line-height: 1.65; margin-bottom: 28px;
+  }
+  .receipt-instruction {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 10px; padding: 20px 24px;
+    text-align: left;
+  }
+  .receipt-instruction h5 {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .receipt-steps { list-style: none; display: grid; gap: 9px; }
+  .receipt-steps li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.88rem; color: rgba(255,255,255,.7);
+    line-height: 1.55;
+  }
+  .r-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    font-size: 0.65rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .fb-link {
+    color: var(--gold); text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+  }
+  .fb-link:hover { color: var(--gold-light); }
+
+  /* ── BUY NOW MODAL TRIGGER ── */
+  .gcash-btn-wrap { margin-top: 40px; text-align: center; }
+  .gcash-btn {
+    background: #0082CB; color: var(--white);
+    padding: 15px 40px; border-radius: 6px;
+    font-weight: 700; font-size: 1.05rem;
+    letter-spacing: .06em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .25s, transform .2s, box-shadow .25s;
+    box-shadow: 0 8px 28px rgba(0,130,203,0.35);
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .gcash-btn:hover {
+    background: #006aaa;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0,130,203,0.45);
+  }
+  .gcash-logo { font-size: 1.3rem; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(5,10,18,0.85);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 16px; padding: 44px;
+    max-width: 480px; width: 100%;
+    text-align: center;
+    position: relative;
+    animation: fadeUp .4s ease;
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 20px;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.4); font-size: 1.6rem; line-height: 1;
+    transition: color .2s;
+  }
+  .modal-close:hover { color: var(--white); }
+  .modal-tag {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--white); font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .modal-price-row {
+    display: flex; align-items: baseline; gap: 6px;
+    justify-content: center; margin-bottom: 24px;
+  }
+  .modal-currency { font-size: 1.1rem; color: var(--gold); font-weight: 600; }
+  .modal-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; color: var(--white); font-weight: 700; line-height: 1;
+  }
+  .modal-qr-wrap {
+    display: inline-block;
+    background: var(--white);
+    border-radius: 12px; padding: 14px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .modal-qr-box {
+    width: 220px; height: 220px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: #f5f5f5;
+    border: 2px dashed #ccc; border-radius: 8px;
+    gap: 8px;
+  }
+  /* Replace .modal-qr-box content with <img class="qr-img" src="your-qr.png"> when ready */
+  .modal-qr-note {
+    font-size: 0.68rem; color: #bbb; text-align: center;
+    padding: 0 10px; line-height: 1.5;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .modal-receipt {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 10px; padding: 18px 22px;
+    text-align: left; margin-top: 4px;
+  }
+  .modal-receipt h5 {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .modal-steps { list-style: none; display: grid; gap: 8px; }
+  .modal-steps li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.85rem; color: rgba(255,255,255,.7);
+    line-height: 1.55;
+  }
+
+  /* ── PRICING / CTA ── */
+  .product-cta {
+    background: var(--navy); text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .product-cta::before {
+    content: '';
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+  }
+  .product-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--white); font-weight: 700;
+    max-width: 600px; margin: 0 auto 16px;
+    position: relative; z-index: 2;
+  }
+  .product-cta p {
+    color: rgba(255,255,255,.6); font-size: 1.08rem;
+    max-width: 440px; margin: 0 auto 36px;
+    position: relative; z-index: 2; line-height: 1.75;
+  }
+  .cta-price-tag {
+    display: inline-flex; align-items: baseline; gap: 4px;
+    position: relative; z-index: 2; margin-bottom: 32px;
+  }
+  .cta-curr { font-size: 1.4rem; color: var(--gold); font-weight: 600; }
+  .cta-amt {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; color: var(--white); font-weight: 700; line-height: 1;
+  }
+  .cta-sublabel {
+    display: block; font-size: 0.78rem; color: rgba(255,255,255,.4);
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 36px; position: relative; z-index: 2;
+  }
+  .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; z-index: 2; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080F18; padding: 60px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px; border-top: 1px solid rgba(201,168,76,.1);
+  }
+  .footer-brand span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.61rem; font-weight: 700;
+    color: var(--gold); display: block; margin-bottom: 4px;
+  }
+  .footer-brand span:last-child {
+    font-size: 0.747rem; color: var(--gray);
+    letter-spacing: .15em; text-transform: uppercase;
+  }
+  .footer-brand p {
+    margin-top: 18px; font-size: 0.954rem;
+    color: rgba(255,255,255,.35); line-height: 1.8;
+    max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 0.805rem; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; display: grid; gap: 10px; }
+  .footer-col a {
+    font-size: 0.943rem; color: rgba(255,255,255,.4);
+    text-decoration: none; transition: color .25s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    background: #050A10; padding: 18px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,.04);
+  }
+  .footer-bottom p { font-size: 0.862rem; color: rgba(255,255,255,.25); }
+  .bir-badge {
+    background: rgba(42,125,95,.15); border: 1px solid rgba(42,125,95,.3);
+    color: #5BBFA0; padding: 5px 14px; border-radius: 100px;
+    font-size: 0.805rem; font-weight: 600; letter-spacing: .08em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 28px; }
+    .hero { padding: 120px 28px 70px; }
+    .product-overview,
+    .how-inner { grid-template-columns: 1fr; gap: 48px; }
+    footer { grid-template-columns: 1fr; gap: 36px; padding: 40px 28px; }
+    .footer-bottom { padding: 16px 28px; flex-direction: column; gap: 10px; text-align: center; }
+    .cta-amt { font-size: 3rem; }
+  }
+  @media (max-width: 600px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .modal { padding: 32px 24px; }
+    .modal-amount { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Accounting Tax Service Logo" class="nav-logo-img" onerror="this.style.display='none'">
+    <div class="nav-logo-text">
+      <span>Accounting Tax Service</span>
+      <span>Certified Public Accountants</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span>Digital Product · Instant Download</span>
+    </div>
+    <h1>Philippine Payroll<br><em>Excel Template</em> v2026</h1>
+    <p class="hero-sub">A ready-to-use, fully automated Excel payroll template built for Philippine businesses — compliant with BIR, SSS, PhilHealth, and Pag-IBIG requirements.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal()">
+        💙 Pay with GCash
+      </button>
+      <a href="#features" class="btn-outline">See What's Inside ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT OVERVIEW -->
+<section class="product-overview" id="product">
+  <div class="product-visual reveal-left">
+    <div class="excel-badge">
+      <span class="big">v2026</span>
+      <span class="small">Updated</span>
+    </div>
+    <div class="excel-mockup">
+      <div class="excel-title-bar">
+        <div class="excel-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="excel-filename">PH_Payroll_Template_v2026.xlsx</span>
+      </div>
+      <div class="excel-sheet-tabs">
+        <div class="tab active">Payroll</div>
+        <div class="tab">SSS</div>
+        <div class="tab">PhilHealth</div>
+        <div class="tab">Pag-IBIG</div>
+        <div class="tab">BIR</div>
+      </div>
+      <table class="excel-table">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Basic Pay</th>
+            <th>SSS</th>
+            <th>PhilHlth</th>
+            <th>Pag-IBIG</th>
+            <th>Net Pay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>J. Dela Cruz</td>
+            <td>₱18,000</td>
+            <td class="td-gold">₱900</td>
+            <td class="td-gold">₱450</td>
+            <td class="td-gold">₱100</td>
+            <td class="td-green">₱16,550</td>
+          </tr>
+          <tr>
+            <td>M. Santos</td>
+            <td>₱22,500</td>
+            <td class="td-gold">₱1,125</td>
+            <td class="td-gold">₱562</td>
+            <td class="td-gold">₱100</td>
+            <td class="td-green">₱20,713</td>
+          </tr>
+          <tr>
+            <td>R. Reyes</td>
+            <td>₱15,000</td>
+            <td class="td-gold">₱750</td>
+            <td class="td-gold">₱375</td>
+            <td class="td-gold">₱100</td>
+            <td class="td-green">₱13,775</td>
+          </tr>
+          <tr>
+            <td>A. Garcia</td>
+            <td>₱30,000</td>
+            <td class="td-gold">₱1,500</td>
+            <td class="td-gold">₱750</td>
+            <td class="td-gold">₱100</td>
+            <td class="td-green">₱27,650</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="product-text reveal-right">
+    <span class="section-tag">About the Template</span>
+    <h2 class="section-title">Built for Philippine Payroll Compliance</h2>
+    <p>Stop doing payroll from scratch every month. This Excel template handles all the computations automatically — from gross pay to statutory deductions — so you can process payroll in minutes, not hours.</p>
+    <p>Designed by licensed CPAs with deep knowledge of BIR TRAIN Law, SSS, PhilHealth, and Pag-IBIG regulations effective 2026.</p>
+    <ul class="product-highlights">
+      <li>Auto-computed SSS, PhilHealth &amp; Pag-IBIG contributions</li>
+      <li>BIR withholding tax table (TRAIN Law 2026 rates)</li>
+      <li>13th month pay &amp; holiday pay calculator</li>
+      <li>Works on Microsoft Excel and Google Sheets</li>
+      <li>No macros required — fully formula-based</li>
+      <li>Printable payslip layout included</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-header reveal">
+    <span class="section-tag">What's Included</span>
+    <h2 class="section-title">Everything You Need for Payroll</h2>
+    <p class="section-sub">One file. Multiple sheets. Complete payroll solution for sole proprietors, SMEs, and growing corporations.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">📊</div>
+      <h3>Master Payroll Sheet</h3>
+      <p>Main payroll register with auto-calculated gross pay, deductions, and net pay for up to 50 employees per period.</p>
+      <ul class="feature-list">
+        <li>Semi-monthly or monthly payroll</li>
+        <li>Overtime &amp; holiday pay columns</li>
+        <li>Late/absent deduction rows</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🏛️</div>
+      <h3>SSS Contribution Table</h3>
+      <p>Updated 2026 SSS contribution schedule with automatic lookup based on employee salary bracket.</p>
+      <ul class="feature-list">
+        <li>Employee &amp; employer shares</li>
+        <li>MPF (Mandatory Provident Fund)</li>
+        <li>Auto-VLOOKUP formula</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🏥</div>
+      <h3>PhilHealth Schedule</h3>
+      <p>Premium contribution rates based on the PhilHealth 2026 schedule, automatically applied per employee salary range.</p>
+      <ul class="feature-list">
+        <li>3-5% premium rate applied</li>
+        <li>Salary floor &amp; ceiling built-in</li>
+        <li>Employer share included</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🏠</div>
+      <h3>Pag-IBIG Fund</h3>
+      <p>Pag-IBIG HDMF deduction table with correct employee and employer contributions per existing regulations.</p>
+      <ul class="feature-list">
+        <li>₱100 standard deduction</li>
+        <li>Voluntary savings support</li>
+        <li>Employer matching column</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📋</div>
+      <h3>BIR Withholding Tax</h3>
+      <p>Tax withheld on compensation using the TRAIN Law revised tax table. Monthly and annual views included.</p>
+      <ul class="feature-list">
+        <li>TRAIN Law 2026 tax brackets</li>
+        <li>Annualized tax computation</li>
+        <li>Substituted filing basis</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🧾</div>
+      <h3>Payslip Template</h3>
+      <p>Clean, printable payslip for each employee showing all earnings, deductions, and net pay — ready to distribute.</p>
+      <ul class="feature-list">
+        <li>Print-ready A5 format</li>
+        <li>Company name &amp; logo field</li>
+        <li>One-click per-employee view</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO GET + PAYMENT -->
+<section class="how-section" id="payment">
+  <div class="how-inner">
+    <div class="reveal-left">
+      <span class="section-tag">How to Purchase</span>
+      <h2 class="section-title light">Simple Steps to Get Your Template</h2>
+      <p class="section-sub light">No complicated checkout. Pay via GCash, send us your receipt, and we'll deliver the file straight to you.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <div class="how-step-text">
+            <h4>Click "Pay with GCash"</h4>
+            <p>Tap the button on this page to reveal our GCash QR code and payment details.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <div class="how-step-text">
+            <h4>Scan QR &amp; Send Payment</h4>
+            <p>Open your GCash app, scan the QR code, and complete the payment for the template.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <div class="how-step-text">
+            <h4>Screenshot Your Receipt</h4>
+            <p>Take a screenshot of the GCash transaction confirmation showing the reference number.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">4</div>
+          <div class="how-step-text">
+            <h4>Message Us on Facebook</h4>
+            <p>Send your receipt via Facebook Messenger. We'll reply with the download file within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal-right">
+      <div class="payment-card">
+        <div class="payment-card-top">GCash Payment</div>
+
+        <!-- ══ QR CODE AREA ══════════════════════════════════════ -->
+        <!--
+          TO ADD YOUR QR CODE:
+          1. Upload your GCash QR image (e.g. gcash-qr.png) to the same folder as this file.
+          2. Replace the entire .qr-wrapper block below with:
+             <div class="qr-wrapper">
+               <img class="qr-img" src="gcash-qr.png" alt="GCash QR Code">
+               <div class="qr-app-label">Scan with GCash App</div>
+             </div>
+        -->
+        <div class="qr-wrapper">
+          <div class="qr-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="4" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+              <rect x="8" y="8" width="8" height="8" fill="#C9A84C"/>
+              <rect x="28" y="4" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+              <rect x="32" y="8" width="8" height="8" fill="#C9A84C"/>
+              <rect x="4" y="28" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+              <rect x="8" y="32" width="8" height="8" fill="#C9A84C"/>
+              <rect x="28" y="28" width="4" height="4" fill="#C9A84C"/>
+              <rect x="36" y="28" width="4" height="4" fill="#C9A84C"/>
+              <rect x="28" y="36" width="4" height="4" fill="#C9A84C"/>
+              <rect x="36" y="36" width="4" height="4" fill="#C9A84C"/>
+            </svg>
+            <span class="qr-placeholder-text">Replace with your<br>GCash QR image</span>
+          </div>
+          <div class="qr-app-label">Scan with GCash App</div>
+        </div>
+        <!-- ══ END QR CODE AREA ══════════════════════════════════ -->
+
+        <div class="payment-name">Accounting Tax Service</div>
+        <div class="payment-note">Scan the QR code using your GCash app to send payment.</div>
+
+        <div class="receipt-instruction">
+          <h5>📩 After Payment — How to Receive Your File</h5>
+          <ol class="receipt-steps">
+            <li>
+              <span class="r-num">1</span>
+              Take a <strong style="color:#fff;">screenshot</strong> of your GCash receipt showing the reference number and amount.
+            </li>
+            <li>
+              <span class="r-num">2</span>
+              Message us on Facebook:
+              <a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank" class="fb-link">&nbsp;Accounting Tax Service FB Page ↗</a>
+            </li>
+            <li>
+              <span class="r-num">3</span>
+              Send your receipt screenshot via <strong style="color:#fff;">Facebook Messenger</strong>.
+            </li>
+            <li>
+              <span class="r-num">4</span>
+              We will send you the <strong style="color:#fff;">Excel file</strong> within <strong style="color:var(--gold);">24 hours</strong> after confirming payment.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="product-cta">
+  <h2>Get Your Payroll Template Today</h2>
+  <p>One-time payment. No subscription. Instant file delivery after payment confirmation.</p>
+  <div class="cta-price-tag">
+    <span class="cta-curr">₱</span>
+    <span class="cta-amt">––</span>
+  </div>
+  <!-- Replace ₱–– above with your actual price e.g. ₱299 -->
+  <span class="cta-sublabel">One-time purchase · Lifetime use</span>
+  <div class="cta-actions">
+    <button class="gcash-btn" onclick="openModal()">
+      <span class="gcash-logo">💙</span> Pay with GCash
+    </button>
+    <a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank" class="btn-outline">
+      💬 Message Us on Facebook
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span>Accounting Tax Service</span>
+    <span>Certified Public Accountants</span>
+    <p>Professional accounting, bookkeeping, and tax consulting services for businesses across the Philippines — delivered with precision and integrity.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="index.html#services">Bookkeeping</a></li>
+      <li><a href="index.html#services">BIR Tax Filing</a></li>
+      <li><a href="index.html#services">Financial Statements</a></li>
+      <li><a href="index.html#services">Business Registration</a></li>
+      <li><a href="index.html#services">Payroll Services</a></li>
+      <li><a href="index.html#services">Tax Planning &amp; Consulting</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="index.html#about">About the Firm</a></li>
+      <li><a href="index.html#why">Why Choose Us</a></li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+      <li><a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank">Facebook Page ↗</a></li>
+      <li><a href="https://www.bir.gov.ph" target="_blank">BIR Philippines ↗</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Accounting Tax Service. All rights reserved. Tuguegarao City, Cagayan, Philippines.</p>
+  <span class="bir-badge">✓ BIR Registered Practice</span>
+</div>
+
+<!-- GCASH MODAL -->
+<div class="modal-overlay" id="gcashModal" onclick="closeModalOutside(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="modal-tag">GCash Payment</div>
+    <h3 id="modalTitle">Scan to Pay</h3>
+
+    <div class="modal-price-row">
+      <span class="modal-currency">₱</span>
+      <span class="modal-amount">––</span>
+      <!-- Replace –– with your actual price -->
+    </div>
+
+    <!-- ══ MODAL QR CODE AREA ════════════════════════════════════ -->
+    <!--
+      TO ADD YOUR QR CODE HERE TOO:
+      Replace the .modal-qr-wrap block with:
+        <div class="modal-qr-wrap">
+          <img class="qr-img" src="gcash-qr.png" alt="GCash QR Code" style="width:220px;height:220px;display:block;border-radius:8px;">
+        </div>
+    -->
+    <div class="modal-qr-wrap">
+      <div class="modal-qr-box">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="8" y="8" width="8" height="8" fill="#C9A84C"/>
+          <rect x="28" y="4" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="32" y="8" width="8" height="8" fill="#C9A84C"/>
+          <rect x="4" y="28" width="16" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="8" y="32" width="8" height="8" fill="#C9A84C"/>
+          <rect x="28" y="28" width="4" height="4" fill="#C9A84C"/>
+          <rect x="36" y="28" width="4" height="4" fill="#C9A84C"/>
+          <rect x="28" y="36" width="4" height="4" fill="#C9A84C"/>
+          <rect x="36" y="36" width="4" height="4" fill="#C9A84C"/>
+        </svg>
+        <span class="modal-qr-note">Replace with your<br>GCash QR image</span>
+      </div>
+    </div>
+    <!-- ══ END MODAL QR ══════════════════════════════════════════ -->
+
+    <div class="modal-receipt">
+      <h5>📩 After paying, here's what to do:</h5>
+      <ol class="modal-steps">
+        <li><span class="r-num">1</span> Screenshot your GCash receipt.</li>
+        <li><span class="r-num">2</span> Go to our <a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank" class="fb-link">Facebook Page ↗</a></li>
+        <li><span class="r-num">3</span> Send the screenshot via <strong style="color:#fff;">Messenger</strong>.</li>
+        <li><span class="r-num">4</span> We'll send your file within <strong style="color:var(--gold);">24 hours</strong>. ✓</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Feature card stagger
+  document.querySelectorAll('.feature-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.07) + 's';
+  });
+
+  // Modal
+  function openModal() {
+    document.getElementById('gcashModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('gcashModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('gcashModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+</body>
+</html>
