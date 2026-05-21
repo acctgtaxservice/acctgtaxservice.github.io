@@ -420,14 +420,7 @@
     box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     margin-bottom: 24px;
   }
-  .qr-placeholder {
-    width: 200px; height: 200px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    background: #f9f9f9;
-    border: 2px dashed #ddd; border-radius: 8px;
-    gap: 10px; cursor: default;
-  }
+  .qr-placeholder img { width: 200px; height: 200px; display: block; }
   /* When a real QR image is placed, replace the above with: */
   /* .qr-placeholder img { width: 200px; height: 200px; display: block; } */
   .qr-placeholder-text {
@@ -560,12 +553,7 @@
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   }
   .modal-qr-box {
-    width: 220px; height: 220px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    background: #f5f5f5;
-    border: 2px dashed #ccc; border-radius: 8px;
-    gap: 8px;
+    <img class="qr-img" src="Gcash-QR.JPG">
   }
   /* Replace .modal-qr-box content with <img class="qr-img" src="your-qr.png"> when ready */
   .modal-qr-note {
@@ -941,7 +929,7 @@
              </div>
         -->
         <div class="qr-wrapper">
-               <img class="qr-img" src="Gcash-QR.jpg" alt="GCash QR Code">
+               <img class="qr-img" src="Gcash-QR.JPG" alt="GCash QR Code">
                <div class="qr-app-label">Scan with GCash App</div>
              </div>
         <!-- ══ END QR CODE AREA ══════════════════════════════════ -->
@@ -1052,7 +1040,7 @@
         </div>
     -->
     <div class="modal-qr-wrap">
-          <img class="qr-img" src="Gcash-QR.jpg" alt="GCash QR Code" style="width:220px;height:220px;display:block;border-radius:8px;">
+          <img class="qr-img" src="Gcash-QR.JPG" alt="GCash QR Code" style="width:220px;height:220px;display:block;border-radius:8px;">
         </div>
     <!-- ══ END MODAL QR ══════════════════════════════════════════ -->
 
