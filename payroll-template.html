@@ -833,6 +833,7 @@
     .modal { padding: 24px 14px; }
   }
 </style>
+  
   <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -850,6 +851,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  
 </head>
 <body>
 
@@ -889,7 +891,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
       <div style="font-size:0.78rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">One-time purchase · Lifetime use</div>
     </div>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openModal()">
+      <button class="btn-primary" onclick="openModal(); fbq('track', 'InitiateCheckout');">
         💙 Pay with GCash
       </button>
       <a href="#features" class="btn-outline">See What's Inside ↓</a>
@@ -1099,7 +1101,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
   <!-- Replace ₱–– above with your actual price e.g. ₱299 -->
   <span class="cta-sublabel">One-time purchase · Lifetime use</span>
   <div class="cta-actions">
-    <button class="gcash-btn" onclick="openModal()">
+    <button class="gcash-btn" onclick="openModal(); fbq('track', 'InitiateCheckout');">
       <span class="gcash-logo">💙</span> Pay with GCash
     </button>
     <a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank" class="btn-outline">
