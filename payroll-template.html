@@ -23,6 +23,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { overflow-x: hidden; scroll-behavior: smooth; }
+  html { overflow-x: hidden; scroll-behavior: smooth; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', sans-serif;
@@ -191,14 +192,16 @@
   .section-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-size: clamp(1.4rem, 4vw, 2.6rem);
     font-weight: 700; line-height: 1.15;
     color: var(--navy);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .section-title.light { color: var(--white); }
   .section-sub {
     margin-top: 14px; font-size: 1.08rem;
-    color: var(--gray); line-height: 1.75; max-width: 520px;
+    color: var(--gray); line-height: 1.75; max-width: min(520px, 100%);
   }
   .section-sub.light { color: rgba(255,255,255,.6); }
 
@@ -217,7 +220,7 @@
   .product-overview {
     background: var(--white);
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
+    gap: clamp(24px, 5vw, 80px); align-items: center;
   }
   .product-visual {
     position: relative;
@@ -372,14 +375,15 @@
   .how-section { background: var(--navy); }
   .how-inner {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
+    gap: clamp(24px, 5vw, 80px); align-items: center;
   }
   .how-steps { display: grid; gap: 0; margin-top: 36px; }
   .how-step {
-    display: flex; gap: 24px;
+    display: flex; gap: 16px;
     padding: 24px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     transition: background .2s;
+    min-width: 0;
   }
   .how-step:last-child { border-bottom: none; }
   .how-num {
@@ -573,7 +577,9 @@
     text-transform: uppercase; color: var(--gold);
     margin-bottom: 10px;
   }
-  .modal-steps { list-style: none; display: grid; gap: 8px; }
+  .modal-steps { list-style: none; display: grid; gap: 8px;   word-wrap: break-word;
+  overflow-wrap: break-word;
+  }
   .modal-steps li {
     display: flex; align-items: flex-start; gap: 10px;
     font-size: 0.85rem; color: rgba(255,255,255,.7);
@@ -704,11 +710,13 @@
     .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
     .hero-actions a { width: 100%; max-width: 320px; text-align: center; }
     .product-overview,
-    .how-inner { grid-template-columns: 1fr; gap: 36px; padding: 60px 20px; }
-    .features-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .how-inner { grid-template-columns: 1fr !important; gap: 36px; padding: 60px 20px; }
+    .features-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
     footer { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
     .footer-bottom { padding: 16px 20px; flex-direction: column; gap: 10px; text-align: center; }
     .cta-amt { font-size: 2.4rem; }
+    .section-title { word-wrap: break-word; overflow-wrap: break-word; }
+    .section-sub { max-width: 100% !important; }
   }
 
   /* ── MOBILE (max 600px) ── */
@@ -716,8 +724,8 @@
     nav { padding: 12px 16px; }
     section { padding: 50px 16px; }
     .hero { padding: 100px 16px 50px; }
-    .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
-    .hero-sub { font-size: 0.92rem; }
+    .hero h1 { font-size: clamp(1.7rem, 6vw, 2.2rem); word-wrap: break-word; overflow-wrap: break-word; }
+    .hero-sub { font-size: 0.9rem; max-width: 100% !important; }
     .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
     .hero-actions a { width: 100%; text-align: center; padding: 14px 20px; }
     .nav-logo span:first-child { font-size: 1rem; }
@@ -726,30 +734,39 @@
     .features-grid { grid-template-columns: 1fr; gap: 16px; }
     .feature-card { padding: 24px 20px; }
     .product-overview,
-    .how-inner { grid-template-columns: 1fr; gap: 28px; padding: 50px 16px; }
-    .how-steps { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .how-inner { grid-template-columns: 1fr !important; gap: 28px; padding: 50px 16px; }
+    .how-step { gap: 12px; padding: 18px 0; }
+    .how-num { font-size: 1.4rem; width: 32px; }
+    .how-step-text h4 { font-size: 0.95rem; word-wrap: break-word; overflow-wrap: break-word; }
+    .how-step-text p { font-size: 0.82rem; word-wrap: break-word; overflow-wrap: break-word; }
     .cta-amt { font-size: 2rem; }
     .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
     .cta-actions a { width: 100%; text-align: center; }
-    .modal-overlay { padding: 16px; align-items: flex-end; }
-    .modal { padding: 28px 20px; border-radius: 16px 16px 0 0; max-width: 100%; max-height: 90vh; overflow-y: auto; }
+    .modal-overlay { padding: 0; align-items: flex-end; }
+    .modal { padding: 28px 20px; border-radius: 20px 20px 0 0; max-width: 100%; max-height: 92vh; overflow-y: auto; width: 100%; }
     .modal-amount { font-size: 2rem; }
-    .modal-close { top: 12px; right: 12px; }
+    .modal-close { top: 14px; right: 14px; }
+    .modal-receipt { padding: 16px; }
+    .modal-steps li { font-size: 0.82rem; word-wrap: break-word; overflow-wrap: break-word; }
     footer { padding: 36px 16px; gap: 28px; }
     .footer-bottom { padding: 14px 16px; font-size: 0.68rem; }
-    .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
-    .section-sub { font-size: 0.9rem; }
+    .section-title { font-size: clamp(1.4rem, 5.5vw, 2rem) !important; word-wrap: break-word; overflow-wrap: break-word; }
+    .section-sub { font-size: 0.88rem; max-width: 100% !important; }
     img { max-width: 100%; height: auto; }
-    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .order-box, .product-right { padding: 28px 16px; }
-    .order-price-main { font-size: 2.2rem; }
-    .gcash-modal-box { padding: 28px 16px; border-radius: 16px 16px 0 0; }
-    .gcash-amount { font-size: 2rem; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+    .product-text p { font-size: 0.9rem; word-wrap: break-word; overflow-wrap: break-word; }
+    .section-tag { font-size: 0.65rem; }
   }
 
   /* ── SMALL MOBILE (max 400px) ── */
   @media (max-width: 400px) {
     section { padding: 40px 12px; }
+    .hero { padding: 90px 12px 40px; }
+    .hero h1 { font-size: 1.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .modal { padding: 24px 14px; }
+    .section-title { font-size: 1.35rem !important; }
+  }
     .hero { padding: 90px 12px 40px; }
     .hero h1 { font-size: 1.7rem; }
     .features-grid { grid-template-columns: 1fr; }
@@ -1154,11 +1171,11 @@
       TO ADD YOUR QR CODE HERE TOO:
       Replace the .modal-qr-wrap block with:
         <div class="modal-qr-wrap">
-          <img class="qr-img" src="gcash-qr.png" alt="GCash QR Code" style="width:220px;height:220px;display:block;border-radius:8px;">
+          <img class="qr-img" src="gcash-qr.png" alt="GCash QR Code" style="width:min(220px,80vw);height:auto;display:block;border-radius:8px;">
         </div>
     -->
     <div class="modal-qr-wrap">
-          <img class="qr-img" src="Gcash-QR.JPG" alt="GCash QR Code" style="width:220px;height:220px;display:block;border-radius:8px;">
+          <img class="qr-img" src="Gcash-QR.JPG" alt="GCash QR Code" style="width:min(220px,80vw);height:auto;display:block;border-radius:8px;">
         </div>
     <!-- ══ END MODAL QR ══════════════════════════════════════════ -->
 
