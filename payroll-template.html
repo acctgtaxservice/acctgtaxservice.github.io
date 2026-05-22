@@ -217,13 +217,18 @@
   /* ── PRODUCT OVERVIEW ── */
   .product-overview {
     background: var(--white);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: clamp(24px, 5vw, 80px); align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
     padding: 90px clamp(16px, 5vw, 60px);
-    max-width: 100%; overflow: hidden;
+    max-width: 100%;
+    overflow: hidden;
   }
   .product-visual {
     position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
   }
   .excel-mockup {
     border-radius: 12px;
@@ -297,11 +302,17 @@
     font-size: 0.65rem; letter-spacing: .1em; text-transform: uppercase;
   }
 
-  .product-text { position: relative; }
+  .product-text {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .product-text p {
     font-size: 1.05rem; color: #4A5568;
     line-height: 1.85; margin-bottom: 18px;
     word-wrap: break-word; overflow-wrap: break-word;
+    max-width: 800px;
   }
   .product-highlights {
     list-style: none; display: grid; gap: 10px; margin-top: 24px;
@@ -786,7 +797,13 @@
     .section-sub { font-size: 0.85rem; max-width: 100% !important; word-wrap: break-word; }
     .product-text p { font-size: 0.88rem; word-wrap: break-word; }
     .check-list li { font-size: 0.85rem; word-wrap: break-word; }
-    .check-list { padding-left: 0; }
+    .check-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px 24px;
+    margin-top: 20px;
+  }
     img { max-width: 100% !important; height: auto; }
   }
 
@@ -865,7 +882,7 @@
 
 <!-- PRODUCT OVERVIEW -->
 <section class="product-overview" id="product">
-  <div class="product-visual reveal-left">
+  <div class="product-visual reveal">
     <div class="excel-badge">
       <span class="big">v2026</span>
       <span class="small">Updated</span>
@@ -875,7 +892,7 @@
     </div>
   </div>
 
-  <div class="product-text reveal-right">
+  <div class="product-text reveal" style="border-top: 1px solid var(--gray-light); padding-top: 48px;">
     <span class="section-tag">About the Template</span>
     <h2 class="section-title">Built for Philippine Payroll Compliance</h2>
     <p>Stop doing payroll from scratch every month. This Excel template handles all the computations automatically — from gross pay to statutory deductions — so you can process payroll in minutes, not hours.</p>
