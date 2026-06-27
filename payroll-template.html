@@ -891,7 +891,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
       <div style="font-size:0.78rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">One-time purchase · Lifetime use</div>
     </div>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openModal(); fbq('track', 'InitiateCheckout');">
+      <button class="btn-primary" onclick="startCheckout(); fbq('track', 'InitiateCheckout');">
         💙 Pay with GCash
       </button>
       <a href="#features" class="btn-outline">See What's Inside ↓</a>
@@ -1101,7 +1101,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
   <!-- Replace ₱–– above with your actual price e.g. ₱299 -->
   <span class="cta-sublabel">One-time purchase · Lifetime use</span>
   <div class="cta-actions">
-    <button class="gcash-btn" onclick="openModal(); fbq('track', 'InitiateCheckout');">
+    <button class="gcash-btn" onclick="startCheckout(); fbq('track', 'InitiateCheckout');">
       <span class="gcash-logo">💙</span> Pay with GCash
     </button>
     <a href="https://www.facebook.com/profile.php?id=61589415704596" target="_blank" class="btn-outline">
@@ -1200,7 +1200,47 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
     card.style.transitionDelay = (i * 0.07) + 's';
   });
 
-  // Modal
+  // ── PAYMONGO HOSTED CHECKOUT ──
+  const RENDER_SERVER = 'https://ats-webhook-server.onrender.com';
+
+  async function startCheckout() {
+    // Show loading state on all Pay buttons
+    const btns = document.querySelectorAll('.btn-primary, .gcash-btn');
+    btns.forEach(btn => {
+      btn.disabled = true;
+      btn.dataset.originalText = btn.innerHTML;
+      btn.innerHTML = '⏳ Please wait...';
+    });
+
+    try {
+      const response = await fetch(RENDER_SERVER + '/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'payroll-template' })
+      });
+
+      const data = await response.json();
+
+      if (data.checkout_url) {
+        // Redirect customer to PayMongo hosted checkout
+        window.location.href = data.checkout_url;
+      } else {
+        throw new Error(data.error || 'No checkout URL received');
+      }
+
+    } catch (err) {
+      console.error('Checkout error:', err);
+      // Restore buttons
+      btns.forEach(btn => {
+        btn.disabled = false;
+        btn.innerHTML = btn.dataset.originalText || '💙 Pay with GCash';
+      });
+      // Show friendly error
+      alert('Something went wrong. Please try again or message us on Facebook.');
+    }
+  }
+
+  // Keep modal functions for fallback (GCash QR modal still exists)
   function openModal() {
     document.getElementById('gcashModal').classList.add('open');
     document.body.style.overflow = 'hidden';
