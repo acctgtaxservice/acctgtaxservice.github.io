@@ -416,10 +416,11 @@
 
   /* ── QR / PAYMENT CARD ── */
   .payment-card {
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(201,168,76,.18);
-    border-radius: 16px; padding: 44px;
-    text-align: center;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 16px;
+    padding: 32px 28px;
+    text-align: left;
   }
   .payment-card-top {
     font-size: 0.72rem; font-weight: 700; letter-spacing: .2em;
@@ -832,6 +833,81 @@
     .pf-item { font-size: 0.82rem; }
     .modal { padding: 24px 14px; }
   }
+
+  /* ── CHECKOUT CARD ── */
+  .checkout-info-box {
+    background: rgba(13,27,42,0.6);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 10px;
+    padding: 20px 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .checkout-product-name {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.95);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .checkout-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .checkout-price-old {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .checkout-savings {
+    font-size: 0.8rem;
+    color: #68D391;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .qrph-methods { margin-bottom: 20px; text-align: left; }
+  .qrph-label {
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .qrph-apps { display: flex; flex-wrap: wrap; gap: 6px; }
+  .qrph-app {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px; padding: 5px 12px;
+    font-size: 0.76rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+  .checkout-steps-mini { display: grid; gap: 12px; margin-bottom: 20px; text-align: left; }
+  .checkout-step-mini {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.85rem; color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+  }
+  .csm-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(201,168,76,0.25);
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold); font-size: 0.75rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .checkout-secure-note {
+    font-size: 0.75rem; color: rgba(255,255,255,0.55);
+    text-align: center; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    line-height: 1.6;
+  }
 </style>
   
   <!-- Meta Pixel Code -->
@@ -1036,7 +1112,47 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
       </div>
     </div>
 
-            
+    <div class="reveal-right">
+      <div class="payment-card">
+        <div class="payment-card-top">Secure Online Checkout</div>
+
+        <div class="checkout-info-box">
+          <div class="checkout-product-name">📊 Philippine Payroll Excel Template v2026</div>
+          <div class="checkout-price">₱149 <span class="checkout-price-old">₱299</span></div>
+          <div class="checkout-savings">You save ₱150 — 50% OFF 🎉</div>
+        </div>
+
+        <div class="qrph-methods">
+          <div class="qrph-label">Accepted Payment Apps</div>
+          <div class="qrph-apps">
+            <span class="qrph-app">💙 GCash</span>
+            <span class="qrph-app">💚 Maya</span>
+            <span class="qrph-app">🏦 BPI</span>
+            <span class="qrph-app">🏦 BDO</span>
+            <span class="qrph-app">🏦 UnionBank</span>
+            <span class="qrph-app">🏦 Metrobank</span>
+            <span class="qrph-app">+ All QR Ph Banks</span>
+          </div>
+        </div>
+
+        <div class="checkout-steps-mini">
+          <div class="checkout-step-mini">
+            <span class="csm-num">1</span>
+            <span>Click Pay Now button</span>
+          </div>
+          <div class="checkout-step-mini">
+            <span class="csm-num">2</span>
+            <span>Scan QR on checkout page</span>
+          </div>
+          <div class="checkout-step-mini">
+            <span class="csm-num">3</span>
+            <span>Download starts automatically</span>
+          </div>
+        </div>
+
+        <div class="checkout-secure-note">
+          🔒 Powered by PayMongo &nbsp;·&nbsp; Secure & Encrypted
+        </div>
 
       </div>
     </div>
