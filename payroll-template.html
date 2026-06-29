@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Philippine Payroll Excel Template v2026 | Accounting Tax Service</title>
+<title>Digital Products | Accounting Tax Service</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -908,6 +908,120 @@
     border-top: 1px solid rgba(255,255,255,0.12);
     line-height: 1.6;
   }
+
+  /* ── ACCOUNTING PRODUCT MOCKUP ── */
+  .acct-mockup-box {
+    background: linear-gradient(145deg, #0D1B2A, #152232);
+    border-radius: 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(13,27,42,0.35);
+    width: 100%;
+  }
+  .acct-sheet-tabs {
+    display: flex; gap: 2px;
+    background: rgba(0,0,0,0.3);
+    padding: 10px 16px 0;
+    overflow-x: auto;
+  }
+  .acct-tab {
+    font-size: 0.72rem; font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    padding: 7px 14px;
+    border-radius: 6px 6px 0 0;
+    white-space: nowrap;
+    cursor: default;
+  }
+  .acct-tab.active {
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-bottom: none;
+  }
+  .acct-dashboard { padding: 20px; }
+  .acct-dash-title {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .acct-metrics {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 10px; margin-bottom: 20px;
+  }
+  .acct-metric {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 12px 10px; text-align: center;
+  }
+  .acct-metric-label {
+    font-size: 0.65rem; color: rgba(255,255,255,0.4);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .acct-metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+  }
+  .acct-metric-val.green { color: #68D391; }
+  .acct-metric-val.red { color: #FC8181; }
+  .acct-metric-val.gold { color: var(--gold); }
+  .acct-sheets-list { display: grid; gap: 6px; }
+  .acct-sheet-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.8rem; color: rgba(255,255,255,0.65);
+    padding: 7px 10px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .acct-sheet-icon { font-size: 1rem; }
+
+  /* ── ACCOUNTING PRICE BOX ── */
+  .acct-price-box {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px; padding: 20px 22px;
+    margin: 24px 0;
+  }
+  .acct-price-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .acct-price-label {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4); min-width: 100px;
+  }
+  .acct-price-orig {
+    font-size: 1rem; color: rgba(255,255,255,0.3);
+    text-decoration: line-through;
+  }
+  .acct-price-now {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+  }
+  .acct-price-save {
+    font-size: 0.78rem; color: #68D391;
+    font-weight: 700;
+    background: rgba(104,211,145,0.1);
+    padding: 3px 10px; border-radius: 100px;
+  }
+  .acct-price-note {
+    font-size: 0.75rem; color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+  .acct-btn-wrap {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .acct-btn-wrap .btn-primary { flex: 1; min-width: 200px; }
+  .acct-btn-wrap .btn-outline { flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .acct-metrics { grid-template-columns: 1fr 1fr; }
+    .acct-btn-wrap { flex-direction: column; }
+    .acct-btn-wrap .btn-primary { min-width: unset; }
+  }
 </style>
   
   <!-- Meta Pixel Code -->
@@ -954,29 +1068,19 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
   <div class="hero-lines"></div>
   <div class="hero-content">
     <div class="hero-badge">
-      <span>Digital Product</span>
+      <span>Digital Products — Accounting Tax Service</span>
     </div>
-    <h1>Philippine Payroll<br><em>Excel Template</em> v2026</h1>
-    <p class="hero-sub">A ready-to-use, fully automated Excel payroll template built for Philippine businesses — compliant with BIR, SSS, PhilHealth, and Pag-IBIG requirements.</p>
-    <div class="price-block" style="margin-bottom:16px;">
-      <span class="price-original">₱299.00</span>
-      <span class="price-sale-label">50% OFF — Limited Time</span>
-    </div>
-    <div style="margin-bottom:28px;">
-      <span style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:#fff;line-height:1;">₱149.00</span>
-      <div style="font-size:0.78rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">One-time purchase · Lifetime use</div>
-    </div>
+    <h1>Professional Excel Tools<br><em>Built for the Philippines</em></h1>
+    <p class="hero-sub">Ready-to-use, fully automated Excel templates designed specifically for Filipino businesses — BIR, SSS, PhilHealth, and Pag-IBIG compliant. One-time payment, lifetime use.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="startCheckout(); fbq('track', 'InitiateCheckout');">
-        ⚡ Pay Now — QR Ph
-      </button>
-      <a href="#features" class="btn-outline">See What's Inside ↓</a>
+      <a href="#payroll-product" class="btn-primary">📊 Payroll Template — ₱149</a>
+      <a href="#accounting-product" class="btn-outline">📒 Accounting System — ₱989</a>
     </div>
   </div>
 </section>
 
 <!-- PRODUCT OVERVIEW -->
-<section class="product-overview" id="product">
+<section class="product-overview" id="payroll-product">
   <div class="product-visual reveal">
     <div class="excel-badge">
       <span class="big">v2026</span>
@@ -1000,6 +1104,178 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
       <li>No macros required — fully formula-based</li>
       <li>Printable payslip layout included</li>
     </ul>
+  </div>
+</section>
+
+
+<!-- ACCOUNTING PRODUCT -->
+<section class="product-overview" id="accounting-product" style="background: var(--cream);">
+  <div class="product-visual reveal">
+    <div class="excel-badge" style="background:linear-gradient(135deg,#0D2137,#1A3A5C);">
+      <span class="big">v2026</span>
+      <span class="small">Professional</span>
+    </div>
+    <div class="acct-mockup-box">
+      <div class="acct-sheet-tabs">
+        <span class="acct-tab active">Dashboard</span>
+        <span class="acct-tab">Journal</span>
+        <span class="acct-tab">Ledger</span>
+        <span class="acct-tab">Fin. Statements</span>
+      </div>
+      <div class="acct-dashboard">
+        <div class="acct-dash-title">ACCOUNTING SYSTEM DASHBOARD</div>
+        <div class="acct-metrics">
+          <div class="acct-metric">
+            <div class="acct-metric-label">Total Revenue</div>
+            <div class="acct-metric-val green">₱0.00</div>
+          </div>
+          <div class="acct-metric">
+            <div class="acct-metric-label">Total Expenses</div>
+            <div class="acct-metric-val red">₱0.00</div>
+          </div>
+          <div class="acct-metric">
+            <div class="acct-metric-label">Net Income</div>
+            <div class="acct-metric-val gold">₱0.00</div>
+          </div>
+        </div>
+        <div class="acct-sheets-list">
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">📋</span><span>Chart of Accounts</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">📓</span><span>General Journal</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">📊</span><span>General Ledger & Trial Balance</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">📈</span><span>Income Statement</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">🏦</span><span>Balance Sheet</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">💧</span><span>Cash Flow Statement</span></div>
+          <div class="acct-sheet-row"><span class="acct-sheet-icon">🧾</span><span>Income Tax Table 2025</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-text reveal" style="border-top: none;">
+    <span class="section-tag">New Product</span>
+    <h2 class="section-title">Professional Accounting System PH v2026</h2>
+    <p>Stop doing bookkeeping manually. This complete Excel-based accounting system handles your entire financial recording process — from journal entries to financial statements — automatically and in full compliance with Philippine standards.</p>
+    <p>Designed by a licensed CPA with deep knowledge of PFRS for SMEs, BIR requirements, and the TRAIN Law. Perfect for sole proprietors, bookkeepers, freelance accountants, and small corporations.</p>
+    <ul class="check-list">
+      <li>Complete Chart of Accounts (PH-standard)</li>
+      <li>Smart General Journal with double-entry validation</li>
+      <li>Auto-generated General Ledger & Trial Balance</li>
+      <li>Income Statement auto-populated by macro</li>
+      <li>Balance Sheet — cumulative period-end balances</li>
+      <li>Cash Flow Statement (Indirect Method)</li>
+      <li>Real-time Accounting Dashboard</li>
+      <li>TRAIN Law & CREATE Act Income Tax Reference Table</li>
+    </ul>
+
+    <div class="acct-price-box">
+      <div class="acct-price-row">
+        <span class="acct-price-label">Original Price</span>
+        <span class="acct-price-orig">₱3,600.00</span>
+      </div>
+      <div class="acct-price-row">
+        <span class="acct-price-label">Launch Price</span>
+        <span class="acct-price-now">₱989.00</span>
+        <span class="acct-price-save">Save ₱2,611 (73% OFF)</span>
+      </div>
+      <div class="acct-price-note">One-time payment · No subscription · Lifetime use</div>
+    </div>
+
+    <div class="acct-btn-wrap">
+      <button class="btn-primary" onclick="startCheckoutAccounting(); fbq && fbq('track', 'InitiateCheckout');">
+        ⚡ Buy Now — ₱989 via QR Ph
+      </button>
+      <a href="#acct-features" class="btn-outline">See What's Inside ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTING FEATURES -->
+<section class="features" id="acct-features" style="background: var(--white);">
+  <div class="features-header reveal">
+    <span class="section-tag">What's Included</span>
+    <h2 class="section-title">Complete Accounting System — 8 Powerful Sheets</h2>
+    <p class="section-sub">One workbook. Everything you need to run full double-entry bookkeeping and generate financial statements for any Philippine business.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">📋</div>
+      <h3>Chart of Accounts</h3>
+      <p>Pre-built Philippine-standard chart of accounts covering all asset, liability, equity, revenue, and expense categories.</p>
+      <ul class="feature-list">
+        <li>Account numbers & names</li>
+        <li>Normal balance indicators</li>
+        <li>Linked to all other sheets</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📓</div>
+      <h3>General Journal</h3>
+      <p>Smart monthly ledger with double-entry validation. Auto-tags month from date. Color-coded input guidance.</p>
+      <ul class="feature-list">
+        <li>Blue = input cells</li>
+        <li>Green = auto-filled cells</li>
+        <li>Debit = Credit validation</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📊</div>
+      <h3>General Ledger & Trial Balance</h3>
+      <p>Auto-populated from journal entries. Filter by period type — monthly, quarterly, or annual view with one click.</p>
+      <ul class="feature-list">
+        <li>Monthly & annual period view</li>
+        <li>Auto-balanced trial balance</li>
+        <li>Macro-generated output</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📈</div>
+      <h3>Income Statement</h3>
+      <p>Auto-populated from Trial Balance via macro. Shows revenue, expenses, and net income for any selected period.</p>
+      <ul class="feature-list">
+        <li>Revenue & expense breakdown</li>
+        <li>Net income computation</li>
+        <li>PFRS for SMEs format</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🏦</div>
+      <h3>Balance Sheet</h3>
+      <p>Cumulative period-end balances showing assets, liabilities, and equity — ready for BIR or bank submission.</p>
+      <ul class="feature-list">
+        <li>Assets, liabilities & equity</li>
+        <li>Period-end cumulative view</li>
+        <li>Submission-ready format</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">💧</div>
+      <h3>Cash Flow Statement</h3>
+      <p>Indirect method cash flow statement auto-populated by macro. Operating, investing, and financing activities.</p>
+      <ul class="feature-list">
+        <li>Operating activities</li>
+        <li>Investing activities</li>
+        <li>Financing activities</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🖥️</div>
+      <h3>Accounting Dashboard</h3>
+      <p>Real-time summary dashboard linked from all sheets. See your key financial metrics at a glance.</p>
+      <ul class="feature-list">
+        <li>Total revenue & expenses</li>
+        <li>Net income overview</li>
+        <li>Linked to all sheets</li>
+      </ul>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🧾</div>
+      <h3>Income Tax Reference Table</h3>
+      <p>Complete Philippine income tax table per TRAIN Law & CREATE Act — graduated rates, 8% flat tax, and corporate rates included.</p>
+      <ul class="feature-list">
+        <li>Individual graduated rates</li>
+        <li>8% flat tax option</li>
+        <li>CREATE Act corporate rates</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1238,6 +1514,7 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
 
   // ── PAYMONGO HOSTED CHECKOUT ──
   const RENDER_SERVER = 'https://ats-webhook-server.onrender.com';
+  const ACCOUNTING_PRICE = 98900; // ₱989 in centavos
 
   async function startCheckout() {
     // Show loading state on all Pay buttons
@@ -1266,12 +1543,45 @@ src="https://www.facebook.com/tr?id=1298902911795692&ev=PageView&noscript=1"
 
     } catch (err) {
       console.error('Checkout error:', err);
-      // Restore buttons
       btns.forEach(btn => {
         btn.disabled = false;
-        btn.innerHTML = btn.dataset.originalText || '💙 Pay with GCash';
+        btn.innerHTML = btn.dataset.originalText || '⚡ Pay Now';
       });
-      // Show friendly error
+      alert('Something went wrong. Please try again or message us on Facebook.');
+    }
+  }
+
+  // Checkout for Accounting System
+  async function startCheckoutAccounting() {
+    const btns = document.querySelectorAll('button');
+    btns.forEach(btn => {
+      if (btn.onclick && btn.onclick.toString().includes('Accounting')) {
+        btn.disabled = true;
+        btn.dataset.originalText = btn.innerHTML;
+        btn.innerHTML = '⏳ Please wait...';
+      }
+    });
+
+    try {
+      const response = await fetch(RENDER_SERVER + '/create-checkout-accounting', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'accounting-system' })
+      });
+
+      const data = await response.json();
+
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        throw new Error(data.error || 'No checkout URL received');
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+      btns.forEach(btn => {
+        btn.disabled = false;
+        btn.innerHTML = btn.dataset.originalText || '⚡ Buy Now';
+      });
       alert('Something went wrong. Please try again or message us on Facebook.');
     }
   }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful — Download Your Accounting System | Accounting Tax Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A; --gold: #C9A84C; --gold-light: #E2C47A;
+    --gold-dim: rgba(201,168,76,0.15); --cream: #F7F3EC;
+    --white: #FFFFFF; --gray: #8A9BB0; --text: #1A2B3C; --green: #2A7D5F;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; }
+  body {
+    font-family: 'DM Sans', sans-serif; color: var(--text);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    background: linear-gradient(160deg, #0D1B2A 0%, #0D2540 60%, #091E36 100%);
+  }
+  .grid-bg {
+    position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px; pointer-events: none;
+  }
+  .glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%); top: -200px; right: -150px; pointer-events: none; }
+  .card {
+    position: relative; z-index: 2; background: var(--white);
+    border-radius: 16px; max-width: 560px; width: 100%;
+    padding: clamp(32px, 6vw, 56px); text-align: center;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+    animation: popIn .5s ease;
+  }
+  @keyframes popIn { from { opacity:0; transform: scale(.94) translateY(12px); } to { opacity:1; transform: scale(1) translateY(0); } }
+  .check-circle {
+    width: 76px; height: 76px; border-radius: 50%; background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px; animation: checkPop .5s .15s ease both;
+  }
+  @keyframes checkPop { from { transform: scale(0); } to { transform: scale(1); } }
+  .check-circle svg { width: 38px; height: 38px; }
+  .firm-tag { font-family: Arial, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 5vw, 2.1rem); font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.2; }
+  .sub { font-size: 0.95rem; color: var(--gray); line-height: 1.7; margin-bottom: 32px; }
+  .product-box { background: var(--cream); border: 1px solid #E8EDF4; border-radius: 10px; padding: 18px 22px; display: flex; align-items: center; gap: 14px; text-align: left; margin-bottom: 28px; }
+  .product-icon { width: 44px; height: 44px; border-radius: 8px; background: var(--gold-dim); border: 1px solid rgba(201,168,76,.3); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .product-info h4 { font-size: 0.92rem; color: var(--navy); font-weight: 700; margin-bottom: 2px; }
+  .product-info p { font-size: 0.78rem; color: var(--gray); }
+  .download-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; background: var(--gold); color: var(--navy); border: none;
+    border-radius: 8px; padding: 17px 24px;
+    font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700;
+    cursor: pointer; text-decoration: none;
+    transition: background .25s, transform .2s, box-shadow .25s;
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3); margin-bottom: 14px;
+  }
+  .download-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .download-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .auto-note { font-size: 0.78rem; color: var(--gray); margin-bottom: 28px; font-style: italic; }
+  .auto-note strong { color: var(--green); font-style: normal; }
+  .divider { height: 1px; background: #E8EDF4; margin: 28px 0; }
+  .help-text { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-bottom: 18px; }
+  .help-text a { color: var(--gold); font-weight: 600; text-decoration: none; }
+  .home-link { display: inline-block; font-size: 0.82rem; color: var(--navy); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--gold); padding-bottom: 1px; transition: color .2s; }
+  .home-link:hover { color: var(--gold); }
+  @media (max-width: 480px) {
+    .card { padding: 32px 22px; }
+    .product-box { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="glow"></div>
+<div class="card">
+  <div class="check-circle">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="firm-tag">Accounting Tax Service</div>
+  <h1>Payment Successful!</h1>
+  <p class="sub">Salamat sa pagtitiwala! Your Professional Accounting System PH v2026 is ready. Click the button below to download your file.</p>
+  <div class="product-box">
+    <div class="product-icon">📒</div>
+    <div class="product-info">
+      <h4>Professional Accounting System PH v2026</h4>
+      <p>Journal · Ledger · Financial Statements · Dashboard · Tax Table</p>
+    </div>
+  </div>
+  <a href="Professional_Accounting_System_PH_v2026.xlsx" download="Professional_Accounting_System_PH_v2026.xlsx" class="download-btn">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Download Accounting System
+  </a>
+  <p class="auto-note" id="autoNote">Your download should start automatically. <strong>If it doesn't, click the button above.</strong></p>
+  <div class="divider"></div>
+  <p class="help-text">Having trouble? Message us on <a href="https://www.facebook.com/profile.php?id=61574325530745" target="_blank">our Facebook Page</a> and we'll send the file personally.</p>
+  <a href="payroll-template.html" class="home-link">← Back to Digital Products</a>
+</div>
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const link = document.createElement('a');
+      link.href = 'Professional_Accounting_System_PH_v2026.xlsx';
+      link.download = 'Professional_Accounting_System_PH_v2026.xlsx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 800);
+  });
+</script>
+</body>
+</html>
